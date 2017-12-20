@@ -51,43 +51,43 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
-** 1.9.9 **
+**1.9.9**
 * Fixed Bug - Flickering effect on page load
 * Fixed Bug - Open slider on page load
 
-** 1.9.7 **
+**1.9.7**
 * Fixed Bug - Responsive issue in iphone6
 
-** 1.9.6 **
+**1.9.6**
 * Fixed Bug - After last update during updating/deleting slider there was some issue reported
 
-** 1.9.5 **
+**1.9.5**
 * Added Compatibity - For Theme The7
 * Fixed Conflict - For Visual Composer
 
-** 1.9.3 **
+**1.9.3**
 * Bug fix - Get short links was not working properly
 
-** 1.9.1 **
+**1.9.1**
 * Fixed gravity form responsive issue
 
-** 1.9 **
+**1.9**
 * Added shortcode support for Form Maker
 * Added shortcode support for Form Craft
 * Added shortcode support for Visual Form Builder
 
-** 1.8 **
+**1.8**
 * Added shortcode support for Pirate Forms
 * Added shortcode support for Fast Secure Contact Form
 * Added shortcode support for Formidable Forms
 
-** 1.7 **
+**1.7**
 * Fixed IE 11 reported bug
 * Added shortcode support for WP Forms
 * Added shortcode support for Caldera Forms
 * Added shortcode support for Constant Contact Forms
 
-** 1.62 **
+**1.62**
 * Tested for WordPress 4.7.3 compatibility
 * Updated Meta box API
 * Fixed meta-box.php confliction issue reported in support
