@@ -112,7 +112,7 @@ add_filter( 'pre_get_shortlink', 'wpcs_remove_shortlink_button', 10, 2 );
  * @author Mohammad Mursaleen
  * function to remove get short link button
  */
-function wpcs_remove_shortlink_button($post_id , $false ){
+function wpcs_remove_shortlink_button( $false, $post_id ){
 
     return 'wpcs' === get_post_type( $post_id ) ? '' : $false;
 

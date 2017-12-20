@@ -1,33 +1,39 @@
 <?php
 /*
     Plugin Name: WP Contact Slider
-	Plugin URI:	http://wooexpert.com/
-    Description: Simple Contact Slider to display Contact Form 7, Gravity Forms and dispaly random Text or HTML.
-    Author: Wooexpert
-	Author URI: http://wooexpert.com/
-    Version: 1.52
+	Plugin URI:	http://www.wpexperts.io/
+    Description: Simple Contact Slider to display Contact Form 7, Gravity Forms, some other shortcodes and dispaly random Text or HTML.
+    Author: wpexpertsio
+	Author URI: http://www.wpexperts.io/
+    Version: 1.9.9
 */
 
+// Integration
+if(is_admin())
+ require_once( 'inc/wpcs_freemius.php' );
 
-// For meta-box support
+if( ( isset($_GET['post_type']) && $_GET['post_type'] == 'wpcs' ) || ( isset($_GET['post'])  && get_post_type( $_GET['post'] ) == 'wpcs'  ) || ( isset($_POST['wpcs_lable_text_color']) || ( isset($_GET['action']) && $_GET['action'] == 'trash' ) ) ){ // checkiing
 
- require_once( 'inc/meta-box/meta-box.php' );
+ // For meta-box support
+ if( is_admin() && ! class_exists( 'RW_Meta_Box' ) )
+  require_once( 'inc/meta-box/meta-box.php' );
 
-// To call front end functions
- 
- require_once( 'inc/wpcs_frontend_functions.php' );
- 
+ // Declaring Meta fields
+  require_once( 'inc/wpcs_meta_fields.php' );
+
+}
+
 // For admin functions support
 
- require_once( 'inc/wpcs_admin_functions.php' );
+require_once( 'inc/wpcs_admin_functions.php' );
 
-// Declaring Meta fields
+// To call front end functions
 
- require_once( 'inc/wpcs_meta_fields.php' );
+require_once( 'inc/wpcs_frontend_functions.php' );
 
 // Get CSS
 
- require_once( 'inc/wpcs_enque_styles.php' );
+require_once( 'inc/wpcs_enque_styles.php' );
 
 // Get Scripts
 

@@ -123,9 +123,12 @@ function wpcs_slider_section($args){
         $slider_bg_color = get_post_meta( get_the_ID() , 'wpcs_slider_bg_color', true);
         $slider_border_color = get_post_meta( get_the_ID() , 'wpcs_slider_border_color', true);
         $hide_on_mobile = get_post_meta( get_the_ID() , 'wpcs_hide_on_mobile', true);
+        $open_form = get_post_meta( get_the_ID() , 'wpcs_open_form', true);
+      
 
         ?>
         <style>
+          
             /** Style for the button & div **/
             .wpcs_handle,.wpcs_handle a:hover,.wpcs_handle a:active, .wpcs_handle a:focus, .wpcs_handle a:visited{
                 color: <?php  echo $label_text_color; ?> !important;
@@ -137,30 +140,53 @@ function wpcs_slider_section($args){
                 border: 2px solid <?php  echo $slider_border_color; ?> !important;
                 color: <?php  echo $slider_text_color; ?> !important;
             }
-            a#wpcs_handle {
+            #wpcs_container {
                 opacity: 0;
             }
+            /** a#wpcs_handle {
+                opacity: 0;
+            } **/
             <?php if($hide_on_mobile == 'yes'){ ?>
             @media (max-width: 600px) {
                 .wpcs-slide-out-div {
                     display: none;
                 }
             }
-            <?php } ?>
+            <?php } 
+			
+			?>
+			
+			
+			
+			
         </style>
+		
+		
+		<?php if($open_form == 'yes'){ ?>
+		<script>
+		jQuery(window).load(function(){
+		    setTimeout(function(){
+                jQuery("#wpcs_handle").click();
+            },3000)
+		});
+		</script>
+		
+		
+		
+		<?php } ?>
         <script>
             <?php $tab_image_link =  plugins_url( 'img/contact_tab.gif', dirname(__FILE__) ); ?>
 
             jQuery( document ).ready(function() {
-
+			
                 var tab_position = '<?php echo $slider_position; ?>' ;
 
                 jQuery(function($){
 
                     var tab_Width = $('#wpcs_handle').outerWidth(true);
                     var tab_Hight = $('#wpcs_handle').outerHeight(true);
-                    console.log('tab-width =' + tab_Width);
-                    console.log('tab-height =' + tab_Hight);
+                    //console.log('tab-width =' + tab_Width);
+                   // console.log('tab-height =' + tab_Hight);
 
                     $('.wpcs-slide-out-div').tabSlideOut({
                         tabHandle: '.wpcs_handle',                     //class of the element that will become your tab
@@ -186,84 +212,194 @@ function wpcs_slider_section($args){
                 }
 
                 setTimeout(function(){
-                    jQuery('a#wpcs_handle').fadeTo("slow" , 1);
+                    jQuery('#wpcs_container').fadeTo("slow" , 1);
                 },2200);
 
             });
         </script>
-        <div class="wpcs-slide-out-div">
-        <a id='wpcs_handle' class="wpcs_handle wpcs_contact_label wpcs_<?php echo $slider_position; ?>" ><?php echo $title ?></a>
-        <div class="wpcs_scroll_div"  >
-        <div class="wpcs_content" >
-        <?php
+        <div id="wpcs_container" class="wpcs-slide-out-div">
+            <a id='wpcs_handle' class="wpcs_handle wpcs_contact_label wpcs_<?php echo $slider_position; ?>" ><?php echo $title ?></a>
+            <div class="wpcs_scroll_div"  >
+                <div class="wpcs_content" >
+                    <?php
 
-        // Check which option is selected to display in slider
-        $wpcs_option = get_post_meta( get_the_ID() , 'wpcs_option', true);
+                    // Check which option is selected to display in slider
+                    $wpcs_option = get_post_meta( get_the_ID() , 'wpcs_option', true);
 
-        switch ($wpcs_option) {
+                    switch ($wpcs_option) {
 
-            case 'html':
+                        case 'html':
 
-                $wpcs_html = get_post_meta( get_the_ID(), 'wpcs_html', true );
-                // check if the custom field has a value
-                if( ! empty( $wpcs_html ) ) {
-                    echo $wpcs_html;
-                }
-                break;
-
-            case 'shortcode':
-
-                $wpcs_shortcode = get_post_meta( get_the_ID(), 'wpcs_shortcode', true );
-                $wpcs_plugin_name = get_post_meta( get_the_ID(), 'wpcs_plugin_name', true );
-
-                // check if the custom field has a value
-                if( ! empty( $wpcs_shortcode ) ) {
-
-                    switch ($wpcs_plugin_name) {
-
-                        case 'cf7':
-                            ?>
-                            <div class="wpcs-cf7">
-                                <?php
-                                echo do_shortcode( $wpcs_shortcode );
-                                ?>
-                                <script>  /* added script to fix cf7 validation display bug */
-                                    jQuery(document).ready(function(){
-                                        var $wpcf7ResponseDiv = jQuery('.wpcf7-response-output');
-                                        jQuery('.wpcf7-submit').before($wpcf7ResponseDiv[0]);
-                                    });
-                                </script>
-                            </div>
-                            <?php
+                            $wpcs_html = get_post_meta( get_the_ID(), 'wpcs_html', true );
+                            // check if the custom field has a value
+                            if( ! empty( $wpcs_html ) ) {
+                                echo $wpcs_html;
+                            }
                             break;
 
-                        case 'gf':
-                            ?>
-                            <div class="wpcs-gf">
-                                <?php
-                                echo do_shortcode( $wpcs_shortcode );
-                                ?>
-                            </div>
-                            <?php
+                        case 'shortcode':
 
+                            $wpcs_shortcode = get_post_meta( get_the_ID(), 'wpcs_shortcode', true );
+                            $wpcs_plugin_name = get_post_meta( get_the_ID(), 'wpcs_plugin_name', true );
+
+                            // check if the custom field has a value
+                            if( ! empty( $wpcs_shortcode ) ) {
+
+                                switch ($wpcs_plugin_name) {
+
+                                    case 'cf7':
+                                        ?>
+                                        <div class="wpcs-cf7">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                            <script>  /* added script to fix cf7 validation display bug */
+                                                jQuery(document).ready(function(){
+                                                    var $wpcf7ResponseDiv = jQuery('.wpcf7-response-output');
+                                                    jQuery('.wpcf7-submit').before($wpcf7ResponseDiv[0]);
+                                                });
+                                            </script>
+                                        </div>
+                                        <?php
+                                        break;
+
+                                    case 'gf':
+                                        ?>
+                                        <div class="wpcs-gf">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+                                        <?php
+
+                                        break;
+
+                                    case 'wp-form':
+                                        ?>
+                                        <div class="wpcs-wp-form">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+                                    case 'caldera-form':
+                                        ?>
+                                        <div class="wpcs-caldera-form">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+                                    case 'constant-forms':
+                                        ?>
+                                        <div class="wpcs-constant-forms">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+                                    case 'pirate-forms':
+                                        ?>
+                                        <div class="wpcs-pirate-forms">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+										
+									case 'si-contact-form':
+                                        ?>
+                                        <div class="wpcs-si-contact-form">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+									case 'formidable':
+                                        ?>
+                                        <div class="wpcs-formidable">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+									case 'form-maker':
+                                        ?>
+                                        <div class="wpcs-form-maker">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+										
+                                    case 'form-craft':
+                                        ?>
+                                        <div class="wpcs-form-craft">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+									case 'visual-form-builder':
+                                        ?>
+                                        <div class="wpcs-visual-form-builder">
+                                            <?php
+                                            echo do_shortcode( $wpcs_shortcode );
+                                            ?>
+                                        </div>
+
+                                        <?php
+
+                                        break;
+
+                               
+
+                                    default:
+                                        echo do_shortcode( $wpcs_shortcode );
+                                        break;
+
+                                }
+
+                            }
                             break;
 
                         default:
-                            echo do_shortcode( $wpcs_shortcode );
-                            break;
-
+                            echo 'kindly select some option in your slider to display here';
                     }
 
-                }
-                break;
-
-            default:
-                echo 'kindly select some option in your slider to display here';
-        }
-
-        ?>
-        </div>
-        </div>
+                    ?>
+                </div>
+            </div>
         </div>
         <?php
 

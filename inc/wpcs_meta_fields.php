@@ -114,12 +114,22 @@ function wpcs_register_meta_boxes( $meta_boxes )
                 ),
 
             ),
-
+		
             array(
                 'name' => __( 'Hide on small devices', 'wpcs' ),
                 'id'   => "{$prefix}hide_on_mobile",
                 'type' => 'checkbox_list',
                 'desc' => __( 'Check this box if you would like to hide this slider on small devices less then 500px', 'wpcs' ),
+                'options' => array(
+                    'yes' => __( '', 'wpcs' ),
+                ),
+            ),
+			
+			 array(
+                'name' => __( 'Open slider by default', 'wpcs' ),
+                'id'   => "{$prefix}open_form",
+                'type' => 'checkbox_list',
+                'desc' => __( 'Check this box if you would like to open this slider by default when page is loaded', 'wpcs' ),
                 'options' => array(
                     'yes' => __( '', 'wpcs' ),
                 ),
@@ -207,6 +217,15 @@ function wpcs_register_meta_boxes( $meta_boxes )
                     'none' => __( 'none', 'wpcs' ),
                     'gf' => __( 'Gravity Forms', 'wpcs' ),
                     'cf7' => __( 'Contactform 7 ', 'wpcs' ),
+                    'wp-form' => __( 'Wp-forms ', 'wpcs' ),
+                    'caldera-form' => __( 'Caldera forms ', 'wpcs' ),
+                    'constant-forms' => __( 'Constant Contact Forms ', 'wpcs' ),
+                    'pirate-forms' => __( 'Pirate Forms ', 'wpcs' ),
+                    'si-contact-form' => __( 'Fast Secure Contact Form', 'wpcs' ),
+                    'formidable' => __( 'Formidable Forms', 'wpcs' ),
+                    'form-maker' => __( 'Form Maker', 'wpcs' ),
+                    'form-craft' => __( 'Form Craft', 'wpcs' ),
+                    'visual-form-builder' => __( 'Visul Form Builder', 'wpcs' ),
                 ),
             ),
         )
