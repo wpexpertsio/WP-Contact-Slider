@@ -1,17 +1,27 @@
 # WP-Contact-Slider
-Simple contact slider to display Contact form 7, Gravity forms or plain text or HTML and much more to come
+Simple contact slider to display Contact Form 7, Gravity Forms, some other shortcodes or some plain text/HTML.
 
 ### Description
-WP contact slider is simple contact slider to display contactform7, Gravity forms or display random text or HTML.
+WP contact slider is simple contact slider to display contactform7, Gravity forms, Wp Forms, Caldera forms, Constant Contact Forms  or display random text or HTML.
 
 You can use it in any way you want and can create multiple sliders to display on selected Posts and Pages. You can even select different positions where you want to display your contact button and also can customize color scheme of the whole slider with easy to use back end panel.
 
-https://www.youtube.com/watch?v=VVdg5CLT5Yc
+[youtube https://www.youtube.com/watch?v=ONVr2KryH24]
+
 
 ### Features
 - Display plain text or HTML.
 - [Gravity Forms](http://www.gravityforms.com/) shortcode support.
 - [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) shortcode support.
+- [Wp Forms](https://wordpress.org/plugins/wpforms-lite/) shortcode support.
+- [Caldera forms](https://calderaforms.com/) shortcode support.
+- [Constant Contact Forms](https://wordpress.org/plugins/constant-contact-forms/) shortcode support.
+- [Pirate Forms](https://wordpress.org/plugins/pirate-forms/) shortcode support.
+- [Fast Secure Contact Form](https://wordpress.org/plugins/si-contact-form/) shortcode support.
+- [Formidable Forms](https://wordpress.org/plugins/formidable/) shortcode support.
+- [Form Maker](https://wordpress.org/plugins/form-maker/) shortcode support.
+- [Form Craft](https://wordpress.org/plugins/formcraft-form-builder/) shortcode support.
+- [Visual Form Builder](https://wordpress.org/plugins/visual-form-builder/) shortcode support.		
 - More Coming soon...
 
 
@@ -40,6 +50,48 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 
 ### Changelog
+
+** 1.9.9 **
+* Fixed Bug - Flickering effect on page load
+* Fixed Bug - Open slider on page load
+
+** 1.9.7 **
+* Fixed Bug - Responsive issue in iphone6
+
+** 1.9.6 **
+* Fixed Bug - After last update during updating/deleting slider there was some issue reported
+
+** 1.9.5 **
+* Added Compatibity - For Theme The7
+* Fixed Conflict - For Visual Composer
+
+** 1.9.3 **
+* Bug fix - Get short links was not working properly
+
+** 1.9.1 **
+* Fixed gravity form responsive issue
+
+** 1.9 **
+* Added shortcode support for Form Maker
+* Added shortcode support for Form Craft
+* Added shortcode support for Visual Form Builder
+
+** 1.8 **
+* Added shortcode support for Pirate Forms
+* Added shortcode support for Fast Secure Contact Form
+* Added shortcode support for Formidable Forms
+
+** 1.7 **
+* Fixed IE 11 reported bug
+* Added shortcode support for WP Forms
+* Added shortcode support for Caldera Forms
+* Added shortcode support for Constant Contact Forms
+
+** 1.62 **
+* Tested for WordPress 4.7.3 compatibility
+* Updated Meta box API
+* Fixed meta-box.php confliction issue reported in support
+
 
 **1.52**
 * Fixed Bug related to tab redirecting to some other page
