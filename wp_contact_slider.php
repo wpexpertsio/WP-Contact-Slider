@@ -38,3 +38,13 @@ require_once( 'inc/wpcs_enque_styles.php' );
 // Get Scripts
 
 require_once( 'inc/wpcs_enque_scripts.php' );
+
+register_deactivation_hook( __FILE__, 'wpcs_deactivate' );
+/**
+ * @usage to avoid error after migration
+ */
+function wpcs_deactivate(){
+
+    delete_option('fs_accounts');
+
+}
