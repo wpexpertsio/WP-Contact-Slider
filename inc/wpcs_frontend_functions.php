@@ -128,8 +128,7 @@ function wpcs_slider_section($args){
 
         ?>
         <style>
-          
-            /** Style for the button & div **/
+            /** Dynamic Style for the button & div for WP CONTACT SLIDER **/
             .wpcs_handle,.wpcs_handle a:hover,.wpcs_handle a:active, .wpcs_handle a:focus, .wpcs_handle a:visited{
                 color: <?php  echo $label_text_color; ?> !important;
                 background:<?php echo $label_bg_color ?> !important;
@@ -143,25 +142,15 @@ function wpcs_slider_section($args){
             #wpcs_container {
                 opacity: 0;
             }
-            /** a#wpcs_handle {
-                opacity: 0;
-            } **/
             <?php if($hide_on_mobile == 'yes'){ ?>
             @media (max-width: 600px) {
                 .wpcs-slide-out-div {
                     display: none;
                 }
             }
-            <?php } 
-			
+            <?php }
 			?>
-			
-			
-			
-			
         </style>
-		
-		
 		<?php if($open_form == 'yes'){ ?>
 		<script>
 		jQuery(window).load(function(){
@@ -170,15 +159,22 @@ function wpcs_slider_section($args){
             },3000)
 		});
 		</script>
-		
-		
-		
 		<?php } ?>
         <script>
             <?php $tab_image_link =  plugins_url( 'img/contact_tab.gif', dirname(__FILE__) ); ?>
 
-            jQuery( document ).ready(function() {
-			
+            jQuery( document ).ready(function(){
+                wcs_set_slider(2200);
+            });
+            jQuery( window ).resize(function() {
+                jQuery('#wpcs_container').fadeTo(1 , 0);
+                wcs_set_slider(2200);
+            });
+
+            function wcs_set_slider($delay){
+
+                jQuery('.wpcs-slide-out-div, .wpcs_handle, #wpcs_handle').unbind();
+
                 var tab_position = '<?php echo $slider_position; ?>' ;
 
                 jQuery(function($){
@@ -186,14 +182,14 @@ function wpcs_slider_section($args){
                     var tab_Width = $('#wpcs_handle').outerWidth(true);
                     var tab_Hight = $('#wpcs_handle').outerHeight(true);
                     //console.log('tab-width =' + tab_Width);
-                   // console.log('tab-height =' + tab_Hight);
+                    // console.log('tab-height =' + tab_Hight);
 
                     $('.wpcs-slide-out-div').tabSlideOut({
                         tabHandle: '.wpcs_handle',                     //class of the element that will become your tab
                         pathToTabImage: '<?php echo $tab_image_link; ?>', //path to the image for the tab //Optionally can be set using css
                         imageHeight: '36px',                     //height of tab image           //Optionally can be set using css
                         imageWidth: tab_Hight,                       //width of tab image            //Optionally can be set using css
-                        tabLocation: '<?php echo $slider_position; ?>',                      //side of screen where tab lives, top, right, bottom, or left
+                        tabLocation: '<?php echo $slider_position; ?>',                      //side of screen where tab lives, right or left
                         speed: 600,                               //speed of animation
                         action: 'click',                          //options: 'click' or 'hover', action to trigger animation
                         topPos: '10%',                          //position from the top/ use if tabLocation is left or right
@@ -211,11 +207,19 @@ function wpcs_slider_section($args){
                     setTimeout(adjust_slider_on_right, 2000);
                 }
 
-                setTimeout(function(){
-                    jQuery('#wpcs_container').fadeTo("slow" , 1);
-                },2200);
+                if( $delay > 0 ){
+                    setTimeout(function(){
+                        jQuery('#wpcs_container').fadeTo("slow" , 1);
+                    },$delay);
+                }
 
-            });
+                setTimeout(function(){  /* Fix for changing width of WP Contact Slider on form submission */
+                    jQuery(".wpcs_content").css({
+                        "min-width": jQuery('.wpcs_content').outerWidth(true),
+                    });
+                },4000);
+
+            }
         </script>
         <div id="wpcs_container" class="wpcs-slide-out-div">
             <a id='wpcs_handle' class="wpcs_handle wpcs_contact_label wpcs_<?php echo $slider_position; ?>" ><?php echo $title ?></a>
@@ -292,6 +296,20 @@ function wpcs_slider_section($args){
                                             <?php
                                             echo do_shortcode( $wpcs_shortcode );
                                             ?>
+                                            <style>
+                                                /** WP CONTCACT SLIDER -- Style for Caldera from Date picker fix **/
+                                                .cfdatepicker-dropdown {z-index: 99999999999 !important;}
+                                            </style>
+                                            <script>
+                                                /** WP CONTCACT SLIDER -- Script for Caldera from Date picker fix **/
+                                                jQuery('.cfdatepicker').click(function() {
+                                                    setTimeout(function () {
+                                                        jQuery('.cfdatepicker-dropdown').each(function () {
+                                                            this.style.setProperty('z-index', '99999999999', 'important');
+                                                        });
+                                                    }, 100);
+                                                });
+                                            </script>
                                         </div>
 
                                         <?php
@@ -381,8 +399,6 @@ function wpcs_slider_section($args){
                                         <?php
 
                                         break;
-
-                               
 
                                     default:
                                         echo do_shortcode( $wpcs_shortcode );

@@ -1,24 +1,3 @@
-/*
-    tabSlideOUt v1.3
-    
-    By William Paoli: http://wpaoli.building58.com
-
-    To use you must have an image ready to go as your tab
-    Make sure to pass in at minimum the path to the image and its dimensions:
-    
-    example:
-    
-        $('.wpcs-slide-out-div').tabSlideOut({
-                tabHandle: '.handle',                         //class of the element that will be your tab -doesnt have to be an anchor
-                pathToTabImage: 'images/contact_tab.gif',     //relative path to the image for the tab *required*
-                imageHeight: '133px',                         //height of tab image *required*
-                imageWidth: '44px',                           //width of tab image *required*    
-        });
-
-    
-*/
-
-
 (function($){
     $.fn.tabSlideOut = function(callerSettings) {
         var settings = $.extend({
@@ -172,7 +151,8 @@
             });
             
             $(document).click(function(){
-                slideIn();
+                if( 'wpcs_overlay' == event.target.id )
+                 slideIn();
             });
         };
         
@@ -227,25 +207,25 @@
         
     };
 
+    var add_light_box_effect = function(){
+
+        $('<div id="wpcs_overlay" />').css({
+            position:'fixed'
+            , width: '100%'
+            , height : '100%'
+            , opacity : 0.6
+            , background: '#000'
+            , zIndex:9999999
+            , top: 0
+            , left: 0
+        }).appendTo(document.body);
+
+    }
+
 
 })(jQuery);
 
 /* some more functions by Mohammad Mursaleen */
-
-function add_light_box_effect(){
-
-    jQuery('<div id="wpcs_overlay" />').css({
-        position:'fixed'
-        , width: '100%'
-        , height : '100%'
-        , opacity : 0.6
-        , background: '#000'
-        , zIndex:9999999
-        , top: 0
-        , left: 0
-    }).appendTo(document.body);
-
-}
 
 function remove_light_box_effect(){
 
@@ -261,8 +241,8 @@ function adjust_slider_on_left() {
 
         // .outerWidth() takes into account border and padding.
         var width =  jQuery(".wpcs_scroll_div").outerWidth(true);
-        console.log(width);
-        console.log(pos.left);
+        // console.log(width);
+        // console.log(pos.left);
 
         //show the menu directly over the placeholder
         jQuery(".wpcs_handle").css({
@@ -270,9 +250,6 @@ function adjust_slider_on_left() {
             top: pos.top + "px",
             left: ( width - 69 ) + "px"
         }).show();
-
-
-
 
 }
 
@@ -284,8 +261,8 @@ function adjust_slider_on_right() {
 
     // .outerWidth() takes into account border and padding.
     var width =  jQuery(".wpcs_scroll_div").outerWidth(true);
-    console.log(width);
-    console.log(pos.right);
+    // console.log(width);
+    // console.log(pos.right);
 
     //show the menu directly over the placeholder
     jQuery(".wpcs_handle").css({
@@ -296,7 +273,4 @@ function adjust_slider_on_right() {
 
     jQuery('.wpcs_handle').css('left', '');
 
-
 }
-
-

@@ -4,7 +4,7 @@ Tags: contact slider, Contact Form 7, Gravity Forms, Caldera forms, Formidable F
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=pay@objects.ws&item_name=Donation For Plugin
 Requires at least: 4.5
 Tested up to: 4.9.1
-Stable tag: 1.9.9
+Stable tag: 1.9.14
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,12 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 3. Screenshot of WP contact slider with simple text or HTML.
 
 == Changelog ==
+
+= 1.9.14 =
+* Fixed Bug - Caldera form datepicker issue
+* Fixed Bug - error appeared after migration
+* Fixed Bug - breaking on changing screen orientation on small screens
+* Fixed Bug - container width change after submitting form with ajax request
 
 = 1.9.9 =
 * Fixed Bug - Flickering effect on page load

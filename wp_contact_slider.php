@@ -5,7 +5,7 @@
     Description: Simple Contact Slider to display Contact Form 7, Gravity Forms, some other shortcodes and dispaly random Text or HTML.
     Author: wpexpertsio
 	Author URI: http://www.wpexperts.io/
-    Version: 1.9.9
+    Version: 1.9.14
 */
 
 // Integration
