@@ -51,6 +51,12 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
+**1.9.14**
+* Fixed Bug - Caldera form datepicker issue
+* Fixed Bug - error appeared after migration
+* Fixed Bug - breaking on changing screen orientation on small screens
+* Fixed Bug - container width change after submitting form with ajax request
+
 **1.9.9**
 * Fixed Bug - Flickering effect on page load
 * Fixed Bug - Open slider on page load
