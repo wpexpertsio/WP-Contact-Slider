@@ -91,14 +91,26 @@ function wpcs_register_meta_boxes( $meta_boxes )
                 'std'   => __( '#ffffff', 'wpcs' ),
 
             ),
-            // slider border color
+            // Form background color
             array(
                 // Field name - Will be used as label
-                'name'  => __( 'Slider border color', 'wpcs' ),
+                'name'  => __( 'Form background color', 'wpcs' ),
+                // Field ID, i.e. the meta key
+                'id'    => "{$prefix}form_bg_color",
+                // Field description (optional)
+                'desc'  => __( 'Choose color for the for the background of form container', 'wpcs' ),
+                'type'  => 'color',
+                // Default value (optional)
+                'std'   => __( '#fcfcfc', 'wpcs' ),
+            ),
+            // Form border color
+            array(
+                // Field name - Will be used as label
+                'name'  => __( 'Form border color', 'wpcs' ),
                 // Field ID, i.e. the meta key
                 'id'    => "{$prefix}slider_border_color",
                 // Field description (optional)
-                'desc'  => __( 'Choose color for the border of Slider', 'wpcs' ),
+                'desc'  => __( 'Choose color for the border of the form container', 'wpcs' ),
                 'type'  => 'color',
                 // Default value (optional)
                 'std'   => __( '#0c0000', 'wpcs' ),

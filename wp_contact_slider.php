@@ -5,12 +5,18 @@
     Description: Simple Contact Slider to display Contact Form 7, Gravity Forms, some other shortcodes and dispaly random Text or HTML.
     Author: wpexpertsio
 	Author URI: http://www.wpexperts.io/
-    Version: 1.9.14
+    Version: 2.0.3
 */
 
-// Integration
-if(is_admin())
- require_once( 'inc/wpcs_freemius.php' );
+if(is_admin()){
+
+    // Integration
+    require_once( 'inc/wpcs_freemius.php' );
+
+    // To display admin notice
+    require_once( 'inc/wpcs_update_notice.php' );
+
+}
 
 if( ( isset($_GET['post_type']) && $_GET['post_type'] == 'wpcs' ) || ( isset($_GET['post'])  && get_post_type( $_GET['post'] ) == 'wpcs'  ) || ( isset($_POST['wpcs_lable_text_color']) || ( isset($_GET['action']) && $_GET['action'] == 'trash' ) ) ){ // checkiing
 
@@ -24,19 +30,18 @@ if( ( isset($_GET['post_type']) && $_GET['post_type'] == 'wpcs' ) || ( isset($_G
 }
 
 // For admin functions support
-
 require_once( 'inc/wpcs_admin_functions.php' );
 
-// To call front end functions
+// For slider related functions
+require_once( 'inc/wpcs_slider.php' );
 
+// To call front end functions
 require_once( 'inc/wpcs_frontend_functions.php' );
 
 // Get CSS
-
 require_once( 'inc/wpcs_enque_styles.php' );
 
 // Get Scripts
-
 require_once( 'inc/wpcs_enque_scripts.php' );
 
 register_deactivation_hook( __FILE__, 'wpcs_deactivate' );

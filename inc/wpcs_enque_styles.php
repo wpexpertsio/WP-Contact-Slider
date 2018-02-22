@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'wp_enqueue_scripts', 'wpcs_enque_front_styles' );
+// add_action( 'wp_enqueue_scripts', 'wpcs_enque_front_styles' );
 /**
  * @author Mohammad Mursaleen
  * function To register and enqueue frontend styles

@@ -1,10 +1,10 @@
-=== WP Contact Slider ===
+﻿=== WP Contact Slider ===
 Contributors: wpexpertsio
 Tags: contact slider, Contact Form 7, Gravity Forms, Caldera forms, Formidable Forms, Form Maker, Form Craft, Visul Form Builder, Constant Contact Forms, Pirate Forms, Fast Secure Contact Form, Wp Forms, text slider, instant contact form, contactform7
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=pay@objects.ws&item_name=Donation For Plugin
-Requires at least: 4.5
-Tested up to: 4.9.1
-Stable tag: 1.9.14
+Requires at least: 4.7
+Tested up to: 4.9.4
+Stable tag: 2.0.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,7 @@ WP contact slider is simple contact slider to display contactform7, Gravity form
 
 You can use it in any way you want and can create multiple sliders to display on selected Posts and Pages. You can even select different positions where you want to display your contact button and also can customize color scheme of the whole slider with easy to use back end panel.
 
-[youtube https://www.youtube.com/watch?v=ONVr2KryH24]
+[youtube https://www.youtube.com/watch?v=rGbJXg9Jm8I&feature=youtu.be]
 
 = Features: =
 - Display plain text or HTML.
@@ -61,11 +61,36 @@ From edit window choose the option to display short code. A box will appear wher
 Yes. Just like WordPress default editor, In WP Contact Slider you can use visual or text editor to insert what ever you want including images, text and HTML.
 
 == Screenshots ==
-1. Screenshot of WP contact slider with Gravity Forms short code.
-2. Screenshot of WP contact slider with Contact Form 7 shortcode.
-3. Screenshot of WP contact slider with simple text or HTML.
+1. Example of WP Contact Slider with Cardela Form.
+2. Example of WP Contact Slider with Constant Form.
+3. Example of WP Contact Slider with Contact Form 7.
+4. Example of WP Contact Slider with Formidable .
+5. Example of WP Contact Slider with Gravity Forms.
+6. Example of WP Contact Slider with PirateForms.
+7. Example of WP Contact Slider with Visual Form Builder.
+8. Example of WP Contact Slider with Form Maker.
+9. Example of WP Contact Slider with WPForms.
 
 == Changelog ==
+
+= 2.0.3 =
+* Fix - contact form 7 multiple errors getting displayed
+
+= 2.0.2 =
+* Fix - missing cross image
+* Fix - Hide on small screens if checked
+
+= 2.0 =
+* New - Completely New UI
+* New - Introducing 2 backgrounds ( one for main container and other for form container )
+* Improvement - Optimized JS
+* Improvement - Optimized CSS
+
+= 1.9.16 =
+* Fixed Bug – Width of container was changing after page load
+
+= 1.9.15=
+* Fixed Bug – Hide tab on responsive screens
 
 = 1.9.14 =
 * Fixed Bug - Caldera form datepicker issue
