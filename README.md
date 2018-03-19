@@ -48,6 +48,8 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 
 ### Changelog
+**2.1**
+* Fix - contact form 7 multiple errors getting displayed
 
 **2.0.3**
 * Fix - contact form 7 multiple errors getting displayed
