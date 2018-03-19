@@ -5,13 +5,13 @@
     Description: Simple Contact Slider to display Contact Form 7, Gravity Forms, some other shortcodes and dispaly random Text or HTML.
     Author: wpexpertsio
 	Author URI: http://www.wpexperts.io/
-    Version: 2.0.3
+    Version: 2.1
 */
 
 if(is_admin()){
 
     // Integration
-    require_once( 'inc/wpcs_freemius.php' );
+    // require_once( 'inc/wpcs_freemius.php' ); // Removed in version 2.1
 
     // To display admin notice
     require_once( 'inc/wpcs_update_notice.php' );
@@ -44,7 +44,7 @@ require_once( 'inc/wpcs_enque_styles.php' );
 // Get Scripts
 require_once( 'inc/wpcs_enque_scripts.php' );
 
-register_deactivation_hook( __FILE__, 'wpcs_deactivate' );
+// register_deactivation_hook( __FILE__, 'wpcs_deactivate' );
 /**
  * @usage to avoid error after migration
  */
@@ -53,3 +53,35 @@ function wpcs_deactivate(){
     delete_option('fs_accounts');
 
 }
+
+// Create a helper function for easy SDK access.
+function wpcs_fs() {
+    global $wpcs_fs;
+
+    if ( ! isset( $wpcs_fs ) ) {
+        // Include Freemius SDK.
+        require_once dirname(__FILE__) . '/freemius/start.php';
+
+        $wpcs_fs = fs_dynamic_init( array(
+            'id'                  => '1355',
+            'slug'                => 'wp-contact-slider',
+            'type'                => 'plugin',
+            'public_key'          => 'pk_8c7f1aab720c6d8cbfa2c2cb0f7a0',
+            'is_premium'          => false,
+            'has_addons'          => true,
+            'has_paid_plans'      => false,
+            'menu'                => array(
+                'slug'           => 'edit.php?post_type=wpcs',
+                'contact'        => false,
+            ),
+        ) );
+    }
+
+    return $wpcs_fs;
+}
+
+// Init Freemius.
+wpcs_fs();
+// Signal that SDK was initiated.
+do_action( 'wpcs_fs_loaded' );
+
