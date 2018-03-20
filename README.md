@@ -48,6 +48,11 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 
 ### Changelog
+**2.1.3**
+* Fix - body getting pushed some cases.
+* Added - shortcode support for Ninja Forms.
+* Improvement - Added screen readablilty for blind person.
+
 **2.1**
 * Fix - contact form 7 multiple errors getting displayed
 
