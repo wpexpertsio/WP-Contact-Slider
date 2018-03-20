@@ -4,7 +4,7 @@ Tags: contact slider, Contact Form 7, Gravity Forms, Caldera forms, Formidable F
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=pay@objects.ws&item_name=Donation For Plugin
 Requires at least: 4.9
 Tested up to: 4.9.4
-Stable tag: 2.1
+Stable tag: 2.1.3
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,13 @@ You can use it in any way you want and can create multiple sliders to display on
 = Docs & Support =
 
 You can find [Plugin Details](https://wpexperts.io/products/wp-contact-slider/), [FAQ](https://wordpress.org/plugins/wp-contact-slider/faq/) and more detailed information about WP Contact Slider on [wpexperts.io](https://wpexperts.io/). If you were unable to find the answer to your question on the FAQ or in any of the documentation, you should check the [support forum](https://wordpress.org/support/plugin/wp-contact-slider) on WordPress.org. If you can't locate any topics that pertain to your particular issue, post a new topic for it.
+
+
+= GET MORE POWER WITH ULTIMATE ADDON COLLECTION =
+- [Advance Settings Add On](https://wpcontactslider.com/advance-settings/)
+- [Triggers & Shortcodes Add On](https://wpcontactslider.com/triggers-and-shortcodes/).
+- [Display Multiple Sliders Add On](https://wpcontactslider.com/display-multiple-sliders/).
+- [Font Awesome Icons](https://wpcontactslider.com/font-awesome-icons/).
 
 = Looking For Some Conversion Slider =
 We have introduced a free version of OptinSpin a simple WP Optin Wheel to increase sales in your woocommerce store.
@@ -72,6 +79,11 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 9. Example of WP Contact Slider with WPForms.
 
 == Changelog ==
+
+= 2.1.3 =
+* Fix - body getting pushed some cases
+* Added - shortcode support for Ninja Forms
+* Improvement - Added screen readablilty for blind person
 
 = 2.1 =
 * Improvement - Updated Settings UI and scripts
