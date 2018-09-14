@@ -149,7 +149,7 @@ function wpcs_admin_footer_scripts(){
 ?>
 <script>
 
-    jQuery(document).ready(function($){$('#minor-publishing-actions').hide();$('#misc-publishing-actions').hide();$('.rwmb-add-file').hide();});
+    jQuery(document).ready(function($){$('.rwmb-add-file').hide();});
 
     jQuery(document).ready(function($){
             $('#shortcode').hide();
@@ -243,4 +243,20 @@ add_action( 'do_meta_boxes', 'wpcs_remove_revolution_slider_meta_boxes' );
  */
 function wpcs_remove_revolution_slider_meta_boxes() {
     remove_meta_box( 'mymetabox_revslider_0', 'wpcs', 'normal' );
+}
+
+
+add_action('post_submitbox_minor_actions' , 'wpcs_customize_publish_box');
+/**
+ * @author Mohammad Mursaleen
+ * @param $post
+ */
+function wpcs_customize_publish_box($post){
+
+    if( 'wpcs' == $post->post_type ){
+
+        $style = "<style>#minor-publishing-actions,#misc-publishing-actions{display: none !important;}</style>";
+        echo $style;
+    }
+
 }

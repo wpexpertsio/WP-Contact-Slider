@@ -1,11 +1,11 @@
 <?php
 /*
     Plugin Name: WP Contact Slider
-	Plugin URI:	http://www.wpexperts.io/
+	Plugin URI:	https://wpcontactslider.com/
     Description: Simple Contact Slider to display Contact Form 7, Gravity Forms, some other shortcodes and dispaly random Text or HTML.
     Author: wpexpertsio
 	Author URI: http://www.wpexperts.io/
-    Version: 2.1.3
+    Version: 2.1.6
 */
 
 if(is_admin()){
@@ -44,7 +44,10 @@ require_once( 'inc/wpcs_enque_styles.php' );
 // Get Scripts
 require_once( 'inc/wpcs_enque_scripts.php' );
 
-// register_deactivation_hook( __FILE__, 'wpcs_deactivate' );
+// Add-ons bundle sub menu
+require_once( 'inc/wpcs_bundle_menu.php');
+
+register_deactivation_hook( __FILE__, 'wpcs_deactivate' );
 /**
  * @usage to avoid error after migration
  */
