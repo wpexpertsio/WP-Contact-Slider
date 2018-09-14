@@ -16,11 +16,10 @@ function wpcs_fs() {
             'type'                => 'plugin',
             'public_key'          => 'pk_8c7f1aab720c6d8cbfa2c2cb0f7a0',
             'is_premium'          => false,
-            'has_addons'          => false,
+            'has_addons'          => true,
             'has_paid_plans'      => false,
             'menu'                => array(
                 'slug'           => 'edit.php?post_type=wpcs',
-                'account'        => false,
                 'contact'        => false,
             ),
         ) );

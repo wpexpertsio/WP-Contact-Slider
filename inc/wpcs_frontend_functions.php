@@ -66,6 +66,7 @@ function wpcs_display_slider(){
         $args = array(
             'post_type' => 'wpcs',
             'post_status' => 'publish',
+            'posts_per_page' => -1,
         );
 
         // The Query
@@ -86,6 +87,8 @@ function wpcs_display_slider(){
 
                     $args['p'] = get_the_ID(); // To fix bug in version 1.34
                     wpcs_slider_section($args);
+
+                    break;
 
                 }
                 // Restore original Post Data
@@ -145,7 +148,7 @@ function wpcs_display_slider_content($slider_id){
             $wpcs_html = get_post_meta( $slider_id, 'wpcs_html', true );
             // check if the custom field has a value
             if( ! empty( $wpcs_html ) ) {
-                echo $wpcs_html;
+                echo apply_filters( 'wpcs_html_content' , $wpcs_html , $slider_id );
             }
             break;
 
@@ -165,13 +168,6 @@ function wpcs_display_slider_content($slider_id){
                             <?php
                             echo do_shortcode( $wpcs_shortcode );
                             ?>
-                            <script>  /* added script to fix cf7 validation display bug */
-                               /*  jQuery(document).ready(function(){
-                                    var $wpcf7ResponseDiv = jQuery('.wpcf7-response-output');
-                                    jQuery('.wpcf7-submit').before($wpcf7ResponseDiv[0]);
-                                });
-								*/
-                            </script>
                         </div>
                         <?php
                         break;
@@ -278,6 +274,19 @@ function wpcs_display_slider_content($slider_id){
                             echo do_shortcode( $wpcs_shortcode );
                             ?>
                         </div>
+                        <?php
+                        break;
+
+                    case 'ninja-forms':
+                        ?>
+                        <div class="wpcs-ninja-forms">
+                            <?php
+                            echo do_shortcode( $wpcs_shortcode );
+                            ?>
+                        </div>
+                        <style>
+                            .pika-single {z-index: 99999999999 !important;}
+                        </style>
                         <?php
                         break;
 

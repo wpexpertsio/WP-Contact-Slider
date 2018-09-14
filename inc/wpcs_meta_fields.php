@@ -237,6 +237,7 @@ function wpcs_register_meta_boxes( $meta_boxes )
                     'formidable' => __( 'Formidable Forms', 'wpcs' ),
                     'form-maker' => __( 'Form Maker', 'wpcs' ),
                     'form-craft' => __( 'Form Craft', 'wpcs' ),
+                    'ninja-forms' =>  __( 'Ninja Forms', 'wpcs' ),
                     'visual-form-builder' => __( 'Visul Form Builder', 'wpcs' ),
                 ),
             ),

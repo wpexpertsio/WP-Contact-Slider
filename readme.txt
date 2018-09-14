@@ -1,17 +1,17 @@
 ﻿=== WP Contact Slider ===
 Contributors: wpexpertsio
-Tags: contact slider, Contact Form 7, Gravity Forms, Caldera forms, Formidable Forms, Form Maker, Form Craft, Visul Form Builder, Constant Contact Forms, Pirate Forms, Fast Secure Contact Form, Wp Forms, text slider, instant contact form, contactform7
+Tags: contact slider, Contact Form 7, Gravity Forms, Caldera forms, Ninja Forms, Formidable Forms, Form Maker, Form Craft, Visul Form Builder, Constant Contact Forms, Pirate Forms, Fast Secure Contact Form, Wp Forms, text slider, instant contact form, contactform7
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=pay@objects.ws&item_name=Donation For Plugin
-Requires at least: 4.9
-Tested up to: 4.9.4
-Stable tag: 2.1.3
+Requires at least: 4.7
+Tested up to: 4.9.6
+Stable tag: 2.1.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Simple contact slider to display Contact Form 7, Gravity Forms, some other shortcodes or some plain text/HTML.
 
 == Description ==
-WP contact slider is simple contact slider to display contactform7, Gravity forms, Wp Forms, Caldera forms, Constant Contact Forms  or display random text or HTML.
+WP contact slider is simple contact slider to display contactform7, Gravity forms, Ninja Forms, Wp Forms, Caldera forms, Constant Contact Forms  or display random text or HTML.
 
 You can use it in any way you want and can create multiple sliders to display on selected Posts and Pages. You can even select different positions where you want to display your contact button and also can customize color scheme of the whole slider with easy to use back end panel.
 
@@ -30,18 +30,54 @@ You can use it in any way you want and can create multiple sliders to display on
 - [Form Maker](https://wordpress.org/plugins/form-maker/) shortcode support.
 - [Form Craft](https://wordpress.org/plugins/formcraft-form-builder/) shortcode support.
 - [Visual Form Builder](https://wordpress.org/plugins/visual-form-builder/) shortcode support.				
-
+- [Ninja Forms](https://wordpress.org/plugins/ninja-forms/) shortcode support.
 
 = Docs & Support =
 
-You can find [Plugin Details](https://wpexperts.io/products/wp-contact-slider/), [FAQ](https://wordpress.org/plugins/wp-contact-slider/faq/) and more detailed information about WP Contact Slider on [wpexperts.io](https://wpexperts.io/). If you were unable to find the answer to your question on the FAQ or in any of the documentation, you should check the [support forum](https://wordpress.org/support/plugin/wp-contact-slider) on WordPress.org. If you can't locate any topics that pertain to your particular issue, post a new topic for it.
+You can find [Plugin Details](https://wpcontactslider.com), [FAQ](https://wordpress.org/plugins/wp-contact-slider/faq/) and more detailed information about WP Contact Slider on [wpcontactslider.com](https://wpcontactslider.com). If you were unable to find the answer to your question on the FAQ or in any of the documentation, you should check the [support forum](https://wordpress.org/support/plugin/wp-contact-slider) on WordPress.org. If you can't locate any topics that pertain to your particular issue, post a new topic for it.
 
 
 = GET MORE POWER WITH ULTIMATE ADDON COLLECTION =
 - [Advance Settings Add On](https://wpcontactslider.com/advance-settings/)
+With this Add On you get more control over your sliders including following;
+Change container width
+Chagne tab width
+Add background image.
+Enable push body effect
+Hide contact tab
+Disable full height
+More on the way..
+[Click here for more details >](https://wpcontactslider.com/advance-settings/)
+
 - [Triggers & Shortcodes Add On](https://wpcontactslider.com/triggers-and-shortcodes/).
+With this WP Contact Slider Add On you will get access to advance triggers and shortcodes
+TIME DELAY TRIGGER
+Set time in seconds, after which you would like to open slider in front end without clicking tab for the slider
+TIME DELAY INTERVAL TRIGGER (REPEATING)
+Set time in seconds, after which you would like to repetitively open slider again and again
+EXIT INTENT TRIGGER
+There are times when you want to display form for getting your visitors engaged once they intent to leave the page. Now with this Add On you can easily do that.
+BUTTON SHORTCODE
+This addon will generate shortcode for button in your respective slider’s edit window, so that you can easily add those buttons any where in the pages. Clicking on these buttons will trigger to display respective slider.
+LINK SHORT CODE
+Triggers and Shortcode addon will also generate shortcode for link in your respective slider’s edit window, so that you can easily add those links any where in the pages. Clicking on these links will trigger to display respective slider.
+[Click here for more details >](https://wpcontactslider.com/advance-settings/)
+
 - [Display Multiple Sliders Add On](https://wpcontactslider.com/display-multiple-sliders/).
+EASILY DISPLAY UNLIMITED SLIDERS ON SINGLE PAGE
+Now using Multi slider addon you can easily display multiple sliders on single page.
+POSITION EACH SLIDER FROM TOP USING SETTINGS IN SLIDER EDIT WINDOW
+Adding more then 2 slides on right or left would require to change the distance from top for each. Now with this addon you can easily do that.
+DISPLAY MULTIPLE SLIDER WITH DIFFERENT SHORTCODES OR HTML WHAT EVER YOU WANT
+While displaying multiple sliders on same page you can use different shortcodes, i.e you can use contact form 7 in one slider, ninja forms in other and html content in third one and so on and use all on the same page.
+[Click here for more details >](https://wpcontactslider.com/display-multiple-sliders/)
+
 - [Font Awesome Icons](https://wpcontactslider.com/font-awesome-icons/).
+With Fontawesome Icons Add On you can easily select icon from 400+ icons options right from slider settings. You will have option to display selected icon with or without label text with out any custom CSS just with single click.
+[Click here for more details >](https://wpcontactslider.com/font-awesome-icons/)
+
+- [Request For Custom Addon](https://wpcontactslider.com/contact-us/)
+
 
 = Looking For Some Conversion Slider =
 We have introduced a free version of OptinSpin a simple WP Optin Wheel to increase sales in your woocommerce store.
@@ -79,6 +115,16 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 9. Example of WP Contact Slider with WPForms.
 
 == Changelog ==
+
+= 2.1.6 =
+* Tested for WordPress 4.9.6 compatibility
+* Fix - bug related to displaying multiple sliders on different pages
+* Fix - save meta box toggle effect on page load
+* Fix - hide on small devices and open on page load options combination error
+* Improvement - Updated Settings UI and scripts
+
+= 2.1.4 =
+* Fix - error appeared after migration - Now you would need to deactivate and then activate to get rid of that error
 
 = 2.1.3 =
 * Fix - body getting pushed some cases
