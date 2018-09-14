@@ -49,14 +49,14 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
-** 2.1.6 **
+**2.1.6**
 * Tested for WordPress 4.9.6 compatibility
 * Fix - bug related to displaying multiple sliders on different pages
 * Fix - save meta box toggle effect on page load
 * Fix - hide on small devices and open on page load options combination error
 * Improvement - Updated Settings UI and scripts
 
-** 2.1.4 **
+**2.1.4**
 * Fix - error appeared after migration - Now you would need to deactivate and then activate to get rid of that error
 
 
