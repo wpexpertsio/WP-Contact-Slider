@@ -275,9 +275,9 @@ function wpcs_create_slider_slider($slider_id){
     <?php do_action( 'wpcs_before_slider', $slider_id ); ?>
     <!-- WP Contact Slider -- start -->
     <div id="wpcs_tab<?php echo $prefix ?>" class="wpcs_tab <?php echo $tab_classes ?>" aria-label="<?php echo $title ?>" ><?php echo $tab_icon ?><?php echo $title ?></div>
-    <div id="wpcs_content_main<?php echo $prefix ?>" >
-        <div id="wpcs_close_slider<?php echo $prefix ?>" aria-label="close slider" ><img alt="close slider" src="<?php echo  $cross_icon_src ?>"></div>
-        <div id="wpcs_content_inner<?php echo $prefix ?>">
+    <div id="wpcs_content_main<?php echo $prefix ?>" class="wpcs_content_main">
+        <div id="wpcs_close_slider<?php echo $prefix ?>" aria-label="close slider" class="wpcs_close_slider_icon" ><img alt="close slider" src="<?php echo  $cross_icon_src ?>"></div>
+        <div id="wpcs_content_inner<?php echo $prefix ?>" class="wpcs_content_inner" >
             <?php do_action( 'wpcs_before_slider_content', $slider_id ); ?>
             <?php wpcs_display_slider_content($slider_id); ?>
             <?php do_action( 'wpcs_after_slider_content', $slider_id ); ?>
