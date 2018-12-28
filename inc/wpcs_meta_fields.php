@@ -15,7 +15,7 @@ function wpcs_register_meta_boxes( $meta_boxes )
         // Meta box id, UNIQUE per meta box. Optional since 4.1.5
         'id' => 'standard',
         // Meta box title - Will appear at the drag and drop handle bar. Required.
-        'title' => __( 'Color Scheme & Settings', 'wpcs' ),
+        'title' => __( 'Slider Settings', 'wpcs' ),
         // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
         'pages' => array( 'wpcs' ),
         // Where the meta box appear: normal (default), advanced, side. Optional.
@@ -27,6 +27,14 @@ function wpcs_register_meta_boxes( $meta_boxes )
         'clone' => true,
         // List of meta fields
         'fields' => array(
+
+            //******************************* Color scheme section header **************************
+            array(
+                'type' => 'heading',
+                'name' => 'Color Settings',
+                'desc' => 'Set colors as per your theme',
+            ),
+
             // lable text color
             array(
                 // Field name - Will be used as label
@@ -115,6 +123,19 @@ function wpcs_register_meta_boxes( $meta_boxes )
                 // Default value (optional)
                 'std'   => __( '#0c0000', 'wpcs' ),
             ),
+
+
+            // ************** Display Settings section heading  *******************************
+            array(
+                'type' => 'custom_html',
+                'std'  => '<br>',
+            ),
+            array(
+                'type' => 'heading',
+                'name' => 'Display Settings',
+                'desc' => 'Set where and how you would like to display this slider',
+            ),
+
             array(
                 'type' => 'select',
                 'name' => __( 'Slider position', 'wpcs' ),
@@ -125,6 +146,18 @@ function wpcs_register_meta_boxes( $meta_boxes )
                     'right' => __( ' Right ', 'wpcs' ),
                 ),
 
+            ),
+
+            array(
+                'name' => __( 'Enable scroll bar', 'wpcs' ),
+                'id'   => "{$prefix}enable_form_scroll",
+                'class' => "{$prefix}enable_form_scroll",
+                'type' => 'checkbox_list',
+                'desc' => __( 'Enable scroll bar in slider window<br><strong>Note</strong>: This will be helpful if you would like to avoid mouse scroll only', 'wpcs' ),
+                // Options of checkboxes, in format 'value' => 'Label'
+                'options' => array(
+                    'yes' => __( '', 'wpcs' ),
+                ),
             ),
 		
             array(
@@ -199,6 +232,7 @@ function wpcs_register_meta_boxes( $meta_boxes )
                     'html' => __( 'Text or html', 'wpcs' ),
                 ),
             ),
+
         )
     );
 

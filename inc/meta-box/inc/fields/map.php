@@ -13,6 +13,8 @@ class RWMB_Map_Field extends RWMB_Field {
 	 * Enqueue scripts and styles.
 	 */
 	public static function admin_enqueue_scripts() {
+		wp_enqueue_style( 'rwmb-map', RWMB_CSS_URL . 'map.css', array(), RWMB_VER );
+
 		/**
 		 * Since June 2016, Google Maps requires a valid API key.
 		 *
@@ -35,12 +37,14 @@ class RWMB_Map_Field extends RWMB_Field {
 		 * @link https://developers.google.com/maps/documentation/javascript/libraries
 		 */
 		$google_maps_url = apply_filters( 'rwmb_google_maps_url', $google_maps_url );
-		wp_register_script( 'google-maps', esc_url_raw( $google_maps_url ), array(), '', true );
-		wp_enqueue_style( 'rwmb-map', RWMB_CSS_URL . 'map.css', array(), RWMB_VER );
+		wp_register_script( 'google-maps', esc_url_raw( $google_maps_url ), array(), RWMB_VER, true );
 		wp_enqueue_script( 'rwmb-map', RWMB_JS_URL . 'map.js', array(
 			'jquery-ui-autocomplete',
 			'google-maps',
 		), RWMB_VER, true );
+		self::localize_script( 'rwmb-map', 'RWMB_Map', array(
+			'no_results_string' => __( 'No results found', 'meta-box' ),
+		) );
 	}
 
 	/**

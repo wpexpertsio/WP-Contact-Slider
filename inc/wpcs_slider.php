@@ -6,15 +6,13 @@
  */
 function wpcs_create_slider_slider($slider_id){
 
-    if(function_exists('wpcs_is_page_excluded')){
-        if(wpcs_is_page_excluded( $slider_id )){
-            return;
-        }
-    }
+
+    if( !apply_filters( 'wpcs_render_slider', true , $slider_id) ) // slider will be displaye only if the value of this filter is returned true
+        return;
 
     $prefix = "_" . $slider_id;
 
-    $title = get_the_title($slider_id);
+    $title = apply_filters( 'wpcs_tab_title', get_the_title($slider_id) , $slider_id ) ;
     $label_text_color = get_post_meta( $slider_id , 'wpcs_lable_text_color', true);
     $label_bg_color = get_post_meta( $slider_id , 'wpcs_lable_bg_color', true);
     $label_border_color = get_post_meta( $slider_id , 'wpcs_lable_border_color', true);
@@ -25,6 +23,7 @@ function wpcs_create_slider_slider($slider_id){
     $slider_border_color = get_post_meta( $slider_id , 'wpcs_slider_border_color', true);
     $hide_on_mobile = get_post_meta( $slider_id , 'wpcs_hide_on_mobile', true);
     $open_form = get_post_meta( $slider_id , 'wpcs_open_form', true);
+    $scroll_bar = get_post_meta( $slider_id, 'wpcs_enable_form_scroll' , true );
     $position = !empty($slider_position) ? $slider_position : 'right' ;
 
     $top = 200;
@@ -242,9 +241,13 @@ function wpcs_create_slider_slider($slider_id){
         .wpcs_overlay_display_cross{
             cursor: url(<?php echo  $cursor_close_src ?>), auto;
         }
-        #wpcs_content_main<?php echo $prefix ?>::-webkit-scrollbar {
-            display: none;
-        }
+        /* To display scroll bar in slider conditionally */
+        <?php if($scroll_bar != 'yes'){ ?>
+            #wpcs_content_main<?php echo $prefix ?>::-webkit-scrollbar {
+                display: none;
+            }
+        <?php } ?>
+
         div#wpcs_close_slider<?php echo $prefix ?> {
             top: 0px;
         <?php echo $cross_postion = ($position == 'left') ? 'right' : 'left' ; ?>: 0px;

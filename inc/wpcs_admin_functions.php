@@ -96,14 +96,14 @@ add_filter('get_sample_permalink_html', 'wpcs_remove_permalink_meta', '',4);
  */
 function wpcs_remove_permalink_meta($return, $id, $new_title, $new_slug){
     global $post;
-
-    if($post->post_type == 'wpcs'){
-        $ret2 = "";
-        return $ret2;
-    } else {
-        return $return;
+    if(!empty($post) && is_object($post)){
+        if($post->post_type == 'wpcs'){
+            $ret2 = "";
+            return $ret2;
+        } else {
+            return $return;
+        }
     }
-
 }
 
 

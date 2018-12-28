@@ -49,6 +49,11 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
+**2.1.7**
+* Added Classes to all slider divs to give more control for adding general CSS
+* Added option to enable disalbe scrolling 
+
+
 **2.1.6**
 * Tested for WordPress 4.9.6 compatibility
 * Fix - bug related to displaying multiple sliders on different pages
