@@ -49,6 +49,21 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
+**2.3**
+* Tested upto WordPress 5.0.2 compatibility
+* Improvement - Updated Settings UI and scripts
+* Improvement - Disabled publicly_queryable from front
+* Improvement - Removed extra space from bottom of title in slider edit window
+
+**2.2**
+* Fix - object parse error appearing in log
+* Added - Classes to all slider divs to give more control for adding general CSS
+* Added - option to enable/disable vertical scrolling
+* Added - filter "wpcs_tab_title" for title displayed on tab 
+* Added - filter "wpcs_render_slider" with $slider_id in argument, to stop slider to render
+* Improvement - Updated dashboard Settings API
+
+
 **2.1.7**
 * Added Classes to all slider divs to give more control for adding general CSS
 * Added option to enable disalbe scrolling 
