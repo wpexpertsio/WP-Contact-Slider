@@ -8,11 +8,14 @@ add_action('admin_footer','wpcs_notice_script');
  */
 function wpcs_notice_script(){
 
-    if(get_transient('wpcs-admin-notice-2-2-hold'))
-        return '';
+    if( !wpcs_time_to_display_update_notice() )
+    return;
 
-    if (  get_option('wpcs_display_notice_2_2') == 'no' )
-        return '';
+    // if(get_transient('wpcs-admin-notice-2-2-hold'))
+    //     return '';
+
+    // if (  get_option('wpcs_display_notice_2_2') == 'no' )
+    //     return '';
     
     ?>
     <script>
@@ -75,7 +78,7 @@ function wpcs_notice_script(){
             font-weight:bold;
         }
         .wpcs_coupon_line{
-            background: #0073aa;
+            background: #dd3333;
             padding: 0px 10px 3px 5px !important;
             color: white;         
         }
@@ -166,13 +169,11 @@ add_action( 'admin_notices', 'wpcs_update_notice' );
  */
 function wpcs_update_notice() {
 
+    if( !wpcs_time_to_display_update_notice() )
+    return;
+
     $screen = get_current_screen();
 
-    if(get_transient('wpcs-admin-notice-2-2-hold'))
-    return;
-
-    if (  get_option('wpcs_display_notice_2_2') == 'no' )
-    return;
 
     if($screen->post_type != 'wpcs')
         return;
@@ -195,7 +196,7 @@ function wpcs_update_notice() {
                     <div class="content-contact">
                     <h2>GET ADD-ONS BUNDLE FOR WP CONTACT SLIDER</h2>
                     <p>Unleash the power of WP Contact Slider with AddOns Bundle</p>
-                    <p class="wpcs_coupon_line_wrap"><span class="wpcs_coupon_line">Use Coupon code <span class="wpcs_coupon_code">BUNDLE15OFF</span> to get 15% discount</span></p>
+                    <p class="wpcs_coupon_line_wrap"><span class="wpcs_coupon_line">Use Coupon code <span class="wpcs_coupon_code">LIFETIME40FF</span> to get <b>40% discount</b> on LifeTime Bundles</span></p>
                     <a class="button button-primary button-hero" href="'.$addons_url.'">GET ADD-ONS BUNDLE</a>
                     </div>
                     </div>
@@ -222,3 +223,22 @@ function wpcs_dismiss_update_notice(){
 
 }
 add_action('wp_ajax_dismiss_wpcs_notice', 'wpcs_dismiss_update_notice');
+
+
+/**
+ * wpcs_time_to_display_update_notice
+ *
+ * @return void
+ */
+function wpcs_time_to_display_update_notice(){
+
+    if(get_transient('wpcs-admin-notice-2-2-hold'))
+    return false;
+
+
+    if ( get_option('wpcs_display_notice_2_2') == 'no' )
+    return false;
+
+    return true;
+
+}

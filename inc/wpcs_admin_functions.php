@@ -50,7 +50,7 @@ if ( ! function_exists('wpcs_post_type') ) {
 
             'hierarchical'        => true,
 
-            'public'              => true,
+            'public'              => false,
 
             'show_ui'             => true,
 
@@ -70,7 +70,7 @@ if ( ! function_exists('wpcs_post_type') ) {
 
             'exclude_from_search' => true,
 
-            'publicly_queryable'  => true,
+            'publicly_queryable'  => false,
 
             'capability_type'     => 'page',
 
