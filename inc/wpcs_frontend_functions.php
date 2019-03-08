@@ -58,49 +58,63 @@ function wpcs_display_slider(){
             wpcs_slider_section($args);
             // Restore original Post Data
             wp_reset_postdata();
-        }
+
+        } else {   // @since version 2.4 : Added support for pages selected for home
+
+            wpcs_check_sliders_for_this_page($current_page_id);
+         
+        }    
 
     } elseif (is_page() || is_single()) {   // Added support for posts as well since version 1.2
 
-        // WP_Query arguments
-        $args = array(
-            'post_type' => 'wpcs',
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-        );
+        wpcs_check_sliders_for_this_page($current_page_id);
 
-        // The Query
-        $wpcs_query = new WP_Query($args);
+    }
 
-        // The Loop
-        if ($wpcs_query->have_posts()) {
+}
 
-            while ( $wpcs_query->have_posts() ) {
 
-                $wpcs_query->the_post();
 
-                // get the pages for which this slider is set
-                $wpcs_pages = get_post_meta( get_the_ID() , 'wpcs_pages', false);
+function wpcs_check_sliders_for_this_page($current_page_id){
 
-                // check if this page is one of selected pages
-                if( in_array($current_page_id , $wpcs_pages[0])) {
+    // WP_Query arguments
+    $args = array(
+        'post_type' => 'wpcs',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    );
 
-                    $args['p'] = get_the_ID(); // To fix bug in version 1.34
-                    wpcs_slider_section($args);
+    // The Query
+    $wpcs_query = new WP_Query($args);
 
-                    break;
+    // The Loop
+    if ($wpcs_query->have_posts()) {
 
-                }
-                // Restore original Post Data
-                wp_reset_postdata();
+        while ( $wpcs_query->have_posts() ) {
+
+            $wpcs_query->the_post();
+
+            // get the pages for which this slider is set
+            $wpcs_pages = get_post_meta( get_the_ID() , 'wpcs_pages', false);
+
+            // check if this page is one of selected pages
+            if( in_array($current_page_id , $wpcs_pages[0])) {
+
+                $args['p'] = get_the_ID(); // To fix bug in version 1.34
+                wpcs_slider_section($args);
+
+                break;
 
             }
+            // Restore original Post Data
+            wp_reset_postdata();
 
         }
 
     }
 
 }
+
 
 /**
  * @author Mohammad Murasleen
