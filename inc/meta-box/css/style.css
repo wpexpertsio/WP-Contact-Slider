@@ -2,23 +2,19 @@
 -------------------------------------------------------------- */
 
 /* Clearfix for field */
-.rwmb-field:before,
 .rwmb-field:after {
 	content: " ";
 	display: table;
-}
-.rwmb-field:after {
 	clear: both;
 }
 .rwmb-field:not(:last-of-type) {
-	*zoom: 1;
-
 	margin: 0 0 12px;
 }
 .rwmb-label,
 .rwmb-input {
 	vertical-align: top;
 	float: left;
+	box-sizing: border-box;
 }
 .rwmb-label {
 	width: 25%;
@@ -30,6 +26,10 @@
 	color: #dc3232;
 	font-weight: bold;
 	margin-left: 3px;
+}
+.rwmb-input input,
+.rwmb-input select {
+	max-width: 99%;
 }
 
 /* 75% if field has label, 100% if no label */
@@ -121,6 +121,9 @@ select.rwmb-error {
 #side-sortables .rwmb-label,
 #side-sortables .rwmb-input {
 	width: 100%;
+}
+#side-sortables .rwmb-label {
+	margin-bottom: 3px;
 }
 
 /* Seamless style
