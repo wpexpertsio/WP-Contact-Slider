@@ -77,7 +77,12 @@ function wpcs_display_slider(){
 
 function wpcs_check_sliders_for_this_page($current_page_id){
 
-                $wpcs_query->the_post();
+    // WP_Query arguments
+    $args = array(
+        'post_type' => 'wpcs',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    );
 
     // The Query
     $wpcs_query = new WP_Query($args);
@@ -89,9 +94,16 @@ function wpcs_check_sliders_for_this_page($current_page_id){
 
             $wpcs_query->the_post();
 
-                }
-                // Restore original Post Data
-                wp_reset_postdata();
+            // get the pages for which this slider is set
+            $wpcs_pages = get_post_meta( get_the_ID() , 'wpcs_pages', false);
+
+            // check if this page is one of selected pages
+            if( in_array($current_page_id , $wpcs_pages[0])) {
+
+                $args['p'] = get_the_ID(); // To fix bug in version 1.34
+                wpcs_slider_section($args);
+
+                break;
 
             }
             // Restore original Post Data
