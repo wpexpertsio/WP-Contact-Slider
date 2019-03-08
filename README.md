@@ -49,7 +49,7 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
-** 2.4 **
+**2.4**
 * Tested upto WordPress 5.1 compatibility
 * Improvement - Updated Freemius SDK
 * Improvement - Updated Settings UI and scripts
