@@ -3,8 +3,8 @@ Contributors: wpexpertsio
 Tags: contact slider, Contact Form 7, Gravity Forms, Caldera forms, Ninja Forms, Formidable Forms, Form Maker, Form Craft, Visul Form Builder, Constant Contact Forms, Pirate Forms, Fast Secure Contact Form, Wp Forms, text slider, instant contact form, contactform7
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=pay@objects.ws&item_name=Donation For Plugin
 Requires at least: 4.7
-Tested up to: 5.1
-Stable tag: 2.4
+Tested up to: 5.1.1
+Stable tag: 2.4.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -121,6 +121,10 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 9. Example of WP Contact Slider with WPForms.
 
 == Changelog ==
+
+= 2.4.1 =
+* Tested upto WordPress 5.1.1 compatibility
+* Fix - added check if array exist on pages to avoid any error
 
 = 2.4 =
 * Tested upto WordPress 5.1 compatibility
