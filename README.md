@@ -49,6 +49,10 @@ Yes. Just like WordPress default editor, In WP Contact Slider you can use visual
 
 ### Changelog
 
+** 2.4.1 **
+* Tested upto WordPress 5.1.1 compatibility
+* Fix - added check if array exist on pages to avoid any error
+
 ** 2.4 **
 * Tested upto WordPress 5.1 compatibility
 * Improvement - Updated Freemius SDK

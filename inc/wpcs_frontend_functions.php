@@ -97,6 +97,7 @@ function wpcs_check_sliders_for_this_page($current_page_id){
             // get the pages for which this slider is set
             $wpcs_pages = get_post_meta( get_the_ID() , 'wpcs_pages', false);
 
+            if(isset($current_page_id) && is_array($wpcs_pages[0])){
             // check if this page is one of selected pages
             if( in_array($current_page_id , $wpcs_pages[0])) {
 
@@ -106,6 +107,8 @@ function wpcs_check_sliders_for_this_page($current_page_id){
                 break;
 
             }
+            }
+
             // Restore original Post Data
             wp_reset_postdata();
 
